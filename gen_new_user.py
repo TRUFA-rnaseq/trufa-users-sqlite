@@ -2,8 +2,7 @@
 
 #-------------------------------------------------------------------------------
 import sys
-import config
-import database
+from users import database as db
 
 #-------------------------------------------------------------------------------
 if __name__ == "__main__":
@@ -11,7 +10,7 @@ if __name__ == "__main__":
         name = sys.argv[1]
         passwd = sys.argv[2]
         email = sys.argv[3]
-        database.insertUser( name, passwd, email )
+        db.insertUser( name, passwd, email )
     else:
         print "Usage: %s username passwd email" % sys.argv[0]
 
