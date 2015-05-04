@@ -1,0 +1,56 @@
+#+STARTUP: showall
+
+TRUFA (Transcriptomes User-Friendly Analysis) is a free webserver designed to
+help you perform RNA-seq analysis.
+
+Joint work done by:
+
+ - Advanced Computing & e-Science Research Line at Instituto de Física de
+   Cantabria (IFCA)
+ - Museo Nacional de Ciencias Naturales
+
+This package contains the server side module to allow basic user
+authentification using a sqlite database and a htpasswd file.
+
+* Fast Install
+
+  *PREREQUISITES*: You need to have installed Python with modules /bcrypt/,
+  /pysqlite2/ and /htpasswd/.
+
+  Copy this repository in the same host server that the TRUFA web. Edit the
+  /config.py/ file from the TRUFA web (setting the variable ~USERS_LIB~) to
+  point at this repository.
+
+  Copy the file /config.py.example/ to /config.py/. This file should be edited
+  to setup this module.
+
+  #+begin_src bash
+  cp config.py.example config.py
+  #+end_src
+
+  Edit the file /config.py/ and set the initial test user with variables
+  ~DB_TEST_USER~ and ~DB_TEST_PASS~ that will be inserted in the initial
+  database.
+
+  You can generate a initial database using the tool /gen_initial_db.py/:
+
+  #+begin_src bash
+  ./gen_initial_db.py
+  #+end_src
+
+  This tool will generate the files /database.db/ and /htpasswd.db/ with a test
+  user.
+
+  The example file /config.py/ will point by default to this new created
+  database but you can edit the variables ~DB_DATABASE~ and ~DB_PASSFILE~ to
+  point to another users database.
+
+  You can insert a new user in the database with the tool /gen_new_user.py/,
+  e.g:
+
+  #+begin_src bash
+  ./gen_new_user.py NEW_USERNAME USERPASS USEREMAIL
+  #+end_src
+
+* Acknowledgments
+  - Sqlite https://sqlite.org/
