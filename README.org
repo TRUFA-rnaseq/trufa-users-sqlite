@@ -21,8 +21,8 @@ authentification using a sqlite database and a htpasswd file.
   /config.py/ file from the TRUFA web (setting the variable ~USERS_LIB~) to
   point at this repository.
 
-  Copy the file /config.py.example/ to /config.py/. This file should be edited
-  to setup this module.
+  Copy the file /users\config.py.example/ to /users\config.py/ at this
+  repository. This file should be edited to setup this module.
 
   #+begin_src bash
   cp config.py.example config.py
