@@ -24,7 +24,8 @@ def allowPasswordChange(username):
 
 # ------------------------------------------------------------------------------
 def changeUserPassword(username, oldpass, newpass):
-    return db.changeUserPassword(username, newpass)
-
+    if db.checkUser(username, oldpass):
+        return db.changeUserPassword(username, newpass)
+    return False
 
 # ------------------------------------------------------------------------------
